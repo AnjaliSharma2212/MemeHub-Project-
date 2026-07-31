@@ -1,152 +1,155 @@
---Project Information--
-MemeHub a platform where laughter never ends..
+# Joke Junction 😂🔥
 
-# Memehub Frontend (TypeScript + Firebase)
-
-A frontend-only meme sharing platform built using React (TypeScript) and Firebase. Users can upload and view memes. Firebase handles backend functionality like image storage and database.
+**Joke Junction 😂🔥** is a next-gen meme-sharing platform where users can generate, upload, and share memes, engage with a vibrant community, and track their memes as they rise to viral fame.
 
 ---
 
-## Table of Contents
+## 📌 Overview
 
-- [Features](#-features)
-- [Architecture & Flow](#-architecture--flow)
-- [Tech Stack](#-tech-stack)
-- [Setup Instructions](#-setup-instructions)
-- [Project Structure](#-project-structure)
-- [Future Improvements](#-future-improvements)
-- [License](#-license)
+JokeJunction combines AI assistance, meme generation tools, social engagement, and performance tracking into a seamless meme-sharing experience. It’s a platform for both casual meme lovers and content creators to shine.
 
 ---
 
-## 🚀 Features
+## 📸 Screenshots & Features
 
-- Upload memes (image + title)
-- View all uploaded memes in a responsive grid
-- Store image metadata in Firestore
-- Store meme images in Firebase Storage
+### 🏠 Homepage
 
----
+The homepage displays trending memes, basic platform insights, and recent user activity.
 
-## 🔁 Architecture & Flow
-
-### App Flow:
-
-1. \*\*Home Page (/):
-
-   - Loads and displays memes in descending order of timestamp.
-   - Each meme has a title and image.
-
-2. \*\*Upload Page (/upload):
-
-   - Allows the user to input a meme title and upload an image.
-   - Upon submission:
-
-     - Image is uploaded to Firebase Storage.
-     - The image URL, title, timestamp, and default likes are saved to Firestore.
-
-### Firebase Flow:
-
-- _Storage_:
-
-  - Stores uploaded image files under the path memes/{uuid}
-
-- _Firestore_:
-
-  - Stores meme metadata as documents in the memes collection.
-  - Each document includes:
-
-    ts
-    {
-    title: string;
-    imageUrl: string;
-    timestamp: FirebaseFirestore.Timestamp;
-    likes: number;
-    }
+<video width="600" controls>
+  <source src="../MemeHub-Project--2/memehub-app/images/Screen Recording 2025-05-18 124337.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ---
 
-## 🧰 Tech Stack
+### 🔐 Signup & Login
 
-- _React (TypeScript)_ - for UI
-- _Firebase Firestore_ - for storing meme metadata
-- _Firebase Storage_ - for image hosting
-- _React Router_ - for routing
-- _Tailwind CSS_ - for styling
+Users can register or login to access the platform’s features.
 
----
-
-## 🛠 Setup Instructions
-
-### 1. Clone the repository
-
-bash
-git clone https://github.com/yourusername/memehub-frontend.git
-cd memehub-frontend
-
-### 2. Install dependencies
-
-bash
-npm install
-
-### 3. Firebase Setup
-
-- Go to [Firebase Console](https://console.firebase.google.com/)
-- Create a new project
-- Enable _Firestore Database_ and _Firebase Storage_
-- Create a memes collection manually (or let the app create it on upload)
-- Go to _Project Settings > General > Your Apps_ and get your Firebase config.
-- Replace the placeholder values in src/firebase.ts with your config:
-
-ts
-const firebaseConfig = {
-apiKey: "YOUR_API_KEY",
-authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-projectId: "YOUR_PROJECT_ID",
-storageBucket: "YOUR_PROJECT_ID.appspot.com",
-messagingSenderId: "YOUR_SENDER_ID",
-appId: "YOUR_APP_ID"
-};
-
-### 4. Run the app
-
-bash
-npm run dev
-
-# or if using CRA:
-
-npm start
+![Signup Screenshot](../MemeHub-Project--2/memehub-app/images/signup.png)
+![loginUser and loginAdmin Screenshot](../MemeHub-Project--2/memehub-app/images/login.png)
 
 ---
 
-## 📁 Project Structure
+### 🧠 Meme Creation Studio
 
-src/
-├── components/
-│ ├── MemeList.tsx # Meme grid view
-│ └── MemeUploadForm.tsx # Upload form
-├── pages/
-│ ├── Home.tsx # Homepage (meme feed)
-│ └── Upload.tsx # Meme upload page
-├── firebase.ts # Firebase config
-└── App.tsx # Router setup
+Create memes using preloaded templates or by uploading your own images. Includes AI chatbot for caption generation.
+
+![Meme Creation Screenshot](../MemeHub-Project--2/memehub-app/images/generatePage.png)
+![AI Chatbot Screenshot](../MemeHub-Project--2/memehub-app/images/chatbot.png)
 
 ---
 
-## 🧪 Future Improvements
+### 👍 Voting, 💬 Commenting & 🏷️ Tagging
 
-- [ ] Add user authentication (Google/Firebase Auth)
-- [ ] Add a like button with real-time like updates
-- [ ] Comment system under each meme
-- [ ] Search bar and meme filters (by tag or popularity)
-- [ ] Pagination or infinite scroll
+Users can upvote/downvote, comment, and categorize memes.
+
+![Voting & Commenting Screenshot](MemeHub-Project--2/memehub-app/images/voting_commenting.png)
 
 ---
 
-.
+### 📰 Meme Feed & Search
+
+Filter memes by trending, latest, or top all-time. Search by hashtags or caption text.
+
+![Meme Feed Screenshot](../MemeHub-Project--2/memehub-app/images/feed.png)
 
 ---
 
-## ✨ Contribution
+### 📊 Meme Performance Analytics (Admin Only)
 
-Feel free to fork and submit pull requests. Suggestions and improvements are welcome!
+Admins can view metrics like views, upvotes, and viral trends.
+
+![Analytics Screenshot](../MemeHub-Project--2/memehub-app/images/analytics.png)
+
+---
+
+### 🏆 Leaderboard
+
+Track top users based on engagement, uploads, and votes.
+
+![Leaderboard Screenshot](../MemeHub-Project--2/memehub-app/images/leaderboard.png)
+
+---
+
+### 🛠️ Admin Dashboard
+
+Admins manage templates, view reports, and monitor platform-wide stats.
+
+![Admin Dashboard Screenshot](../MemeHub-Project--2/memehub-app/images/analytics.png)
+
+---
+
+### 📥 Manual Meme Upload
+
+Users preferring manual entry can upload and caption memes without AI help.
+
+![Manual Meme Upload Screenshot](../MemeHub-Project--2//memehub-app//images/generatememe.png)
+
+---
+
+## 🚀 Tech Stack
+
+- **Frontend**: React.js
+- **Backend**: Firebase (Auth & Realtime Database)
+- **Styling**: Tailwind CSS
+- **AI Integration**: Gemini Chatbot for caption suggestions
+- **Deployment**: Netlify
+
+---
+
+## 🧑‍💻 Getting Started
+
+### 1. Clone the Repository
+
+    ```bash
+    git clone https://github.com/your-username/memehub.git
+    cd MemeHub-Project-
+    2. Install Dependencies
+    bash
+    npm install
+    3. Set Environment Variables
+    Create a .env file and add:
+      apiKey: "AIzaSyDRCGFXgTsPaJhlNp7mFwDENBLZRFlb9Ik",
+      authDomain: "memehub-c5222.firebaseapp.com",
+      projectId: "memehub-c5222",
+      storageBucket: "memehub-c5222.firebasestorage.app",
+      messagingSenderId: "529198069257",
+      appId: "1:529198069257:web:876c0d839639d078056ad8",
+      measurementId: "G-ZBN7V3NE0M",
+📂 memehub-app/
+│
+├── images/                # Stores meme-related images and assets
+├── node_modules/          # Dependencies for the project
+├── public/                # Static files like index.html
+├── src/                   # Main source code
+│ ├── AdminPage/           # Admin dashboard components
+│ ├── assets/              # Additional assets (icons, backgrounds, etc.)
+│ ├── components/          # Reusable UI components
+│ ├── context/             # Global state management (if used)
+│ ├── pages/               # Main application pages
+│ ├── styles/              # CSS styles
+│ ├── utils/               # Helper functions and utilities
+│
+├── .gitignore             # Git ignored files
+├── App.css                # Global styles
+├── App.jsx                # Main app component
+├── eslint.config.js       # ESLint configuration
+├── index.html             # Entry point HTML file
+├── main.jsx               # Renders the application
+├── package-lock.json      # Dependency lock file
+├── package.json           # Project metadata and dependencies
+├── postcss.config.js      # PostCSS setup
+├── README.md              # Project documentation
+├── routes.jsx             # Routing configuration
+├── tailwind.config.js     # Tailwind CSS setup
+├── vite.config.js         # Vite configuration
+
+🙌 Contributors
+Anjali Sharma(Team Member)
+Stuti Sharan(Team Lead)
+
+
+Contributors welcome!
+```
